@@ -1,14 +1,15 @@
 {
-    "Math 245": {
+    "CS 210": [
+        "https://coursework.cs.duke.edu/compsci-210-fall-2022/L02",
+        "https://courses.cs.duke.edu/fall22/compsci210d/index.html"
+    ],
+    "Math 245": [
 
-    },
-    "CS 210": {
+    ],
+    "Psych 101": [
 
-    },
-    "Psych 101": {
-
-    },
-    "Stats 199": {
+    ],
+    "Stats 199": [
         
-    }
+    ]
 }
