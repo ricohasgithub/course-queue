@@ -19,6 +19,9 @@ function loadCourses(json) {
         document.getElementById("courses").innerHTML += "<h1 class='heading'>" + course + "</h1>";
 
         course_links.push(courses_json[course]);
+        for (let course_index in courses_json[course]) {
+            let course_url = courses_json[course][course_index];
+        }
 
     }
 
