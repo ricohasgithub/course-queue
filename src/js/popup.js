@@ -15,10 +15,8 @@ function loadCourses(json) {
 
         course_names.push(course);
 
-        const para = document.createElement("p");
-        const node = document.createTextNode(course);
-        para.appendChild(node);
-        document.getElementById("courses").innerHTML = para;
+        console.log(course);
+        document.getElementById("courses").innerHTML += "<h1 class='heading'>" + course + "</h1>";
 
         course_links.push(courses_json[course]);
 
