@@ -21,6 +21,7 @@ function loadCourses(json) {
         course_links.push(courses_json[course]);
         for (let course_index in courses_json[course]) {
             let course_url = courses_json[course][course_index];
+            document.getElementById("courses").innerHTML += "<a href='" + course_url + "'target='_blank'>" + "hello </a>";
         }
 
     }
