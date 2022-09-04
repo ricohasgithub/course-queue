@@ -32,7 +32,14 @@ function loadCourses(json) {
             course_urls.push(course_url);    
         }
 
-        let tabColor = tabColors[Math.floor(Math.random() * tabColors.length)];
+        let tabColor = "blue";
+
+        if (tabColors.length > 0) {
+            let randIndex = Math.floor(Math.random() * tabColors.length);
+            tabColor = tabColors[randIndex];
+            tabColors.splice(randIndex, 1);
+            console.log(tabColors);
+        }
 
         tabButton.title_param = course;
         tabButton.courses_param = course_urls;
