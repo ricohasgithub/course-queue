@@ -48,11 +48,14 @@ function loadCourses(json) {
                 const url = local_course_urls[course_index];
                 const tab = await chrome.tabs.create({url});
                 tabsIds.push(tab.id);
-                // window.open(local_course_urls[course_index], '_blank').focus();
             }
 
             const groupId = await chrome.tabs.group({tabIds: tabsIds});
-            chrome.tabGroups.update(groupId, {collapsed: false, title: local_course_title, color: "blue"});
+            await chrome.tabGroups.update(groupId, {
+                collapsed: false, 
+                title: local_course_title, 
+                color: "blue"
+            });
 
         });
 
