@@ -1,18 +1,23 @@
 {
     "CS 210": [
+        "https://docs.google.com/document/d/1RF-Pe0LFpuvAKq84HGp26oqtL_gW1f6csbxrKQ0lKec/edit",
+        "https://sakai.duke.edu/portal/site/cdaeb790-81ba-4a19-ad28-bac6dce7cfa0/page/27bb69cf-38a7-40e7-b6f2-5dd5906c10dd",
         "https://coursework.cs.duke.edu/compsci-210-fall-2022/L02",
-        "https://courses.cs.duke.edu/fall22/compsci210d/index.html"
+        "https://courses.cs.duke.edu/fall22/compsci210d/index.html",
+        "https://docs.google.com/spreadsheets/d/1vNY_B9MAkHUNwcFgmzyPt9Txl_YtdaHc00s1uLen9Do/edit#gid=94076756"
     ],
     "Math 245": [
-        "https://coursework.cs.duke.edu/compsci-210-fall-2022/L02",
-        "https://courses.cs.duke.edu/fall22/compsci210d/index.html"
+        "https://sakai.duke.edu/portal/site/64a94b0e-40bb-4252-8438-e34854d1b404/page/0fbb893c-70ad-45ff-a3fc-c2f3ebd7852a",
+        "https://sakai.duke.edu/access/content/group/64a94b0e-40bb-4252-8438-e34854d1b404/Handouts/IntroductionToMathematicalArguments.pdf",
+        "https://sakai.duke.edu/access/content/group/64a94b0e-40bb-4252-8438-e34854d1b404/Handouts/SetTheory.pdf"
     ],
     "Psych 101": [
-        "https://coursework.cs.duke.edu/compsci-210-fall-2022/L02",
-        "https://courses.cs.duke.edu/fall22/compsci210d/index.html"
+        "https://sakai.duke.edu/portal/site/e05eea63-2efa-4e6e-89c0-1838632433ba"
     ],
     "Stats 199": [
-        "https://coursework.cs.duke.edu/compsci-210-fall-2022/L02",
-        "https://courses.cs.duke.edu/fall22/compsci210d/index.html"
+        "https://sta199-f22-2.github.io/",
+        "https://r4ds.hadley.nz/",
+        "https://openintro-ims.netlify.app/index.html",
+        "https://sakai.duke.edu/portal/site/ee49d7b2-019a-4aa6-9a8d-1b62e842b4ec"
     ]
 }
