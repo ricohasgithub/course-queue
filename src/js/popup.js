@@ -17,12 +17,14 @@ function loadCourses(json) {
 
         console.log(course);
         document.getElementById("courses").innerHTML += "<h1 class='heading'>" + course + "</h1>";
+        document.getElementById("courses").innerHTML += `<div 'target='_blank' id = 'tabButton${course}' class = 'tabButton'>` + `Open Course Tabs </a>`;
+
 
         course_links.push(courses_json[course]);
         for (let course_index in courses_json[course]) {
             let course_url = courses_json[course][course_index];
-            document.getElementById("courses").innerHTML += `<a href=` + course_url + `'target='_blank' id = 'tabButton${course_url}' class = 'tabButton'>` + `hello </a>`;
-            document.getElementById(`tabButton${course_url}`).onclick = openTabGroup(course_url);
+            // document.getElementById("courses").innerHTML += `<a href=` + course_url + `'target='_blank' id = 'tabButton${course_url}' class = 'tabButton'>` + `hello </a>`;
+            // document.getElementById(`tabButton${course}`).onclick = openTabGroup(course_url);
         }
 
     }
