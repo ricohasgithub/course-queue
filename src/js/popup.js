@@ -37,13 +37,25 @@ function loadCourses(json) {
         }
 
         tabButton.param = course_urls;
-        tabButton.addEventListener('click', (event) => {
+        tabButton.addEventListener('click', async (event) => {
         
             let local_course_urls = event.currentTarget.param;
         
+            const tabsIds = [];
             for (let course_index in local_course_urls) {
-                window.open(local_course_urls[course_index], '_blank').focus();
+                const url = local_course_urls[course_index];
+                const tab = await chrome.tabs.create({url});
+                tabsIds.push(tab.id);
+                // window.open(local_course_urls[course_index], '_blank').focus();
             }
+           
+            for (const url of result[group]) {
+                const tab = await chrome.tabs.create({url});
+                tabsIds.push(tab.id);
+            }
+
+            const groupId = await chrome.tabs.group({tabIds: tabsIds});
+            //chrome.tabGroups.update(groupId, {...});
 
         });
 
@@ -52,6 +64,11 @@ function loadCourses(json) {
 
     }
 
+}
+
+async function createTabGroup(course) {
+    let groupId = await chrome.tabs.group({ tabIds: tabId });
+    chrome.tabGroups.update(groupId, { collapsed: false, title: course, color: "blue" });
 }
 
 let url = chrome.runtime.getURL('./assets/courses.json');
