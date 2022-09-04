@@ -36,10 +36,12 @@ function loadCourses(json) {
             course_urls.push(course_url);    
         }
 
-        tabButton.param = course_urls;
+        tabButton.title_param = course;
+        tabButton.courses_param = course_urls;
         tabButton.addEventListener('click', async (event) => {
         
-            let local_course_urls = event.currentTarget.param;
+            let local_course_title = event.currentTarget.title_param;
+            let local_course_urls = event.currentTarget.courses_param;
         
             const tabsIds = [];
             for (let course_index in local_course_urls) {
@@ -50,7 +52,7 @@ function loadCourses(json) {
             }
 
             const groupId = await chrome.tabs.group({tabIds: tabsIds});
-            //chrome.tabGroups.update(groupId, {...});
+            chrome.tabGroups.update(groupId, {collapsed: false, title: local_course_title, color: "blue"});
 
         });
 
