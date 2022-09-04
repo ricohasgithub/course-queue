@@ -3,6 +3,8 @@ let courses_json;
 let course_names = [];
 let course_links = [];
 
+const tabColors = ["red", "blue", "cyan", "green", "purple", "orange"];
+
 function loadCourses(json) {
 
     // Load all courses as arrays of urls from json
@@ -54,21 +56,13 @@ function loadCourses(json) {
             await chrome.tabGroups.update(groupId, {
                 collapsed: false, 
                 title: local_course_title, 
-                color: "blue"
+                color: tabColors[Math.floor(Math.random()*tabColors.length)]
             });
 
         });
 
-        console.log(tabButton);
-        console.log(tabButton.param);
-
     }
 
-}
-
-async function createTabGroup(course) {
-    let groupId = await chrome.tabs.group({ tabIds: tabId });
-    chrome.tabGroups.update(groupId, { collapsed: false, title: course, color: "blue" });
 }
 
 let url = chrome.runtime.getURL('./assets/courses.json');
