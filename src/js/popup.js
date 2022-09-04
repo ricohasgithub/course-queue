@@ -9,15 +9,23 @@ function loadCourses(json) {
     courses_json = json;
     console.log(courses_json);
 
+    const courses_div = document.getElementById("courses");
+
     for (let course in courses_json) {
 
         // Create new html elements in popup.html for each link
 
         course_names.push(course);
 
-        console.log(course);
-        document.getElementById("courses").innerHTML += "<h1 class='heading'>" + course + "</h1>";
-        document.getElementById("courses").innerHTML += `<button id = 'tabButton${course}' class = 'tabButton'>` + `Open Course Tabs </button>`;
+        const courseTitle = document.createElement('h1');
+        courseTitle.textContent = course;
+        courseTitle.setAttribute("class", "heading");
+        courses_div.appendChild(courseTitle);
+
+        const tabButton = document.createElement('button');
+        courses_div.appendChild(tabButton);
+        tabButton.setAttribute("id", `tabButton${course}`);
+        tabButton.setAttribute("class", "tabButton");
 
         course_links.push(courses_json[course]);
         let course_urls = []
@@ -29,20 +37,19 @@ function loadCourses(json) {
             // document.getElementById(`tabButton${course}`).onclick = openTabGroup(course_url);
         }
 
-        const tabButton = document.getElementById(`tabButton${course}`);
+        tabButton.param = course_urls;
         tabButton.addEventListener('click', (event) => {
-            
+
             console.log("Hello");
             console.log(event.currentTarget.param);
         
-            let course_urls = event.currentTarget.param;
+            let local_course_urls = event.currentTarget.param;
         
-            for (let course_index in course_urls) {
-                window.open(course_urls[course_index], '_blank').focus();
+            for (let course_index in local_course_urls) {
+                window.open(local_course_urls[course_index], '_blank').focus();
             }
 
         });
-        tabButton.param = course_urls;
 
         console.log(tabButton);
         console.log(tabButton.param);
