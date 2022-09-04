@@ -3,7 +3,7 @@ let courses_json;
 let course_names = [];
 let course_links = [];
 
-const tabColors = ["red", "blue", "cyan", "green", "purple", "orange"];
+let tabColors = ["red", "blue", "cyan", "green", "purple", "orange"];
 
 function loadCourses(json) {
 
@@ -19,16 +19,10 @@ function loadCourses(json) {
 
         course_names.push(course);
 
-        const courseTitle = document.createElement('h1');
-        courseTitle.textContent = course;
-        courseTitle.setAttribute("class", "heading");
-        courses_div.appendChild(courseTitle);
-
-        const tabButton = document.createElement('button');
+        const tabButton = document.createElement('div');
         tabButton.textContent = course;
         courses_div.appendChild(tabButton);
         tabButton.setAttribute("id", `tabButton${course}`);
-        tabButton.setAttribute("class", "tabButton");
 
         course_links.push(courses_json[course]);
         let course_urls = []
@@ -38,12 +32,19 @@ function loadCourses(json) {
             course_urls.push(course_url);    
         }
 
+        let tabColor = tabColors[Math.floor(Math.random() * tabColors.length)];
+
         tabButton.title_param = course;
         tabButton.courses_param = course_urls;
+        tabButton.tab_color = tabColor;
+
+        tabButton.setAttribute("class", `tabButton ${tabColor}`);
+
         tabButton.addEventListener('click', async (event) => {
         
             let local_course_title = event.currentTarget.title_param;
             let local_course_urls = event.currentTarget.courses_param;
+            let local_course_color = event.currentTarget.tab_color;
         
             const tabsIds = [];
             for (let course_index in local_course_urls) {
@@ -56,7 +57,7 @@ function loadCourses(json) {
             await chrome.tabGroups.update(groupId, {
                 collapsed: false, 
                 title: local_course_title, 
-                color: tabColors[Math.floor(Math.random()*tabColors.length)]
+                color: local_course_color
             });
 
         });

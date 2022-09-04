@@ -1,5 +1,58 @@
 
+.tabButton {
+
+    display: table;
+
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80px;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.tabButton:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.red {
+    background: #eb4034;
+}
+
+.orange {
+    background: #f79f1b;
+}
+
+.blue {
+    background: #1445f7;
+}
+
+.cyan {
+    background: #04c7c0;
+}
+
+.green {
+    background: #00cf4c;
+}
+
+.purple {
+    background: #5400e6;
+}
+
 body {
-    min-height: 300px;
+    min-height: 100px;
     min-width: 125px;
 }
