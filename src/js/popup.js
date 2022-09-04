@@ -17,7 +17,7 @@ function loadCourses(json) {
 
         console.log(course);
         document.getElementById("courses").innerHTML += "<h1 class='heading'>" + course + "</h1>";
-        document.getElementById("courses").innerHTML += `<div 'target='_blank' id = 'tabButton${course}' class = 'tabButton'>` + `Open Course Tabs </a>`;
+        document.getElementById("courses").innerHTML += `<button id = 'tabButton${course}' class = 'tabButton'>` + `Open Course Tabs </button>`;
 
         course_links.push(courses_json[course]);
         let course_urls = []
@@ -29,8 +29,12 @@ function loadCourses(json) {
             // document.getElementById(`tabButton${course}`).onclick = openTabGroup(course_url);
         }
 
-        document.getElementById(`tabButton${course}`).addEventListener('click', openTabGroup, false);
-        document.getElementById(`tabButton${course}`).myParam = course_urls;
+        const tabButton = document.getElementById(`tabButton${course}`);
+        tabButton.addEventListener('click', openTabGroup, false);
+        tabButton.param = course_urls;
+
+        console.log(tabButton);
+        console.log(tabButton.param);
 
     }
 
@@ -39,12 +43,12 @@ function loadCourses(json) {
 function openTabGroup(evt) {
 
     console.log("Hello");
-    console.log(evt.currentTarget.myParam);
+    console.log(evt.currentTarget.param);
 
-    let course_urls = evt.currentTarget.myParam;
+    let course_urls = evt.currentTarget.param;
 
-    for (let course_url in course_urls) {
-        window.open(course_urls[course_url], '_blank').focus();
+    for (let course_index in course_urls) {
+        window.open(course_urls[course_index], '_blank').focus();
     }
 
 }
