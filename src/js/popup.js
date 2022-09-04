@@ -23,6 +23,7 @@ function loadCourses(json) {
         courses_div.appendChild(courseTitle);
 
         const tabButton = document.createElement('button');
+        tabButton.textContent = course;
         courses_div.appendChild(tabButton);
         tabButton.setAttribute("id", `tabButton${course}`);
         tabButton.setAttribute("class", "tabButton");
@@ -32,16 +33,11 @@ function loadCourses(json) {
 
         for (let course_index in courses_json[course]) {
             let course_url = courses_json[course][course_index];
-            course_urls.push(course_url);
-            // document.getElementById("courses").innerHTML += `<a href=` + course_url + `'target='_blank' id = 'tabButton${course_url}' class = 'tabButton'>` + `hello </a>`;
-            // document.getElementById(`tabButton${course}`).onclick = openTabGroup(course_url);
+            course_urls.push(course_url);    
         }
 
         tabButton.param = course_urls;
         tabButton.addEventListener('click', (event) => {
-
-            console.log("Hello");
-            console.log(event.currentTarget.param);
         
             let local_course_urls = event.currentTarget.param;
         
