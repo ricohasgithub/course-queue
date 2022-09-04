@@ -48,11 +48,6 @@ function loadCourses(json) {
                 tabsIds.push(tab.id);
                 // window.open(local_course_urls[course_index], '_blank').focus();
             }
-           
-            for (const url of result[group]) {
-                const tab = await chrome.tabs.create({url});
-                tabsIds.push(tab.id);
-            }
 
             const groupId = await chrome.tabs.group({tabIds: tabsIds});
             //chrome.tabGroups.update(groupId, {...});
