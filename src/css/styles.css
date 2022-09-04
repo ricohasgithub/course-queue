@@ -1,4 +1,15 @@
 
+.gradient-bar {
+    background: #3300CC;
+    background: -webkit-linear-gradient(to right, #3300CC, #CC0033);
+    background: linear-gradient(to right, #3300CC, #CC0033);
+    height: 8px !important;
+}
+
+.heading {
+    text-align: center;
+}
+
 .tabButton {
 
     display: table;
