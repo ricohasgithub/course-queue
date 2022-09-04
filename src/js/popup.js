@@ -30,25 +30,23 @@ function loadCourses(json) {
         }
 
         const tabButton = document.getElementById(`tabButton${course}`);
-        tabButton.addEventListener('click', openTabGroup, false);
+        tabButton.addEventListener('click', (event) => {
+            
+            console.log("Hello");
+            console.log(event.currentTarget.param);
+        
+            let course_urls = event.currentTarget.param;
+        
+            for (let course_index in course_urls) {
+                window.open(course_urls[course_index], '_blank').focus();
+            }
+
+        });
         tabButton.param = course_urls;
 
         console.log(tabButton);
         console.log(tabButton.param);
 
-    }
-
-}
-
-function openTabGroup(evt) {
-
-    console.log("Hello");
-    console.log(evt.currentTarget.param);
-
-    let course_urls = evt.currentTarget.param;
-
-    for (let course_index in course_urls) {
-        window.open(course_urls[course_index], '_blank').focus();
     }
 
 }
