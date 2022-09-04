@@ -19,22 +19,34 @@ function loadCourses(json) {
         document.getElementById("courses").innerHTML += "<h1 class='heading'>" + course + "</h1>";
         document.getElementById("courses").innerHTML += `<div 'target='_blank' id = 'tabButton${course}' class = 'tabButton'>` + `Open Course Tabs </a>`;
 
-
         course_links.push(courses_json[course]);
+        let course_urls = []
+
         for (let course_index in courses_json[course]) {
             let course_url = courses_json[course][course_index];
+            course_urls.push(course_url);
             // document.getElementById("courses").innerHTML += `<a href=` + course_url + `'target='_blank' id = 'tabButton${course_url}' class = 'tabButton'>` + `hello </a>`;
             // document.getElementById(`tabButton${course}`).onclick = openTabGroup(course_url);
         }
+
+        document.getElementById(`tabButton${course}`).addEventListener('click', openTabGroup, false);
+        document.getElementById(`tabButton${course}`).myParam = course_urls;
 
     }
 
 }
 
-function openTabGroup(course_url) {
+function openTabGroup(evt) {
+
     console.log("Hello");
-    console.log(course_url);
-    window.open(course_url, '_blank').focus();
+    console.log(evt.currentTarget.myParam);
+
+    let course_urls = evt.currentTarget.myParam;
+
+    for (let course_url in course_urls) {
+        window.open(course_urls[course_url], '_blank').focus();
+    }
+
 }
 
 let url = chrome.runtime.getURL('./assets/courses.json');
